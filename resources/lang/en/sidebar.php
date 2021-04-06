@@ -1,0 +1,32 @@
+<?php
+return [
+
+    'title' => env('APP_NAME', 'Laravel'),
+    'dashboard' => 'Dashboard',
+    'revenue_stat' => 'Revenue Statistic',
+    'order_stat' => 'Order Statistic',
+    'reservation_booking_description' => 'Reservation and Booking System',
+    'reservation' => 'Reservation',
+    'booking_list' => 'Booking List',
+    'accomodation' => 'Accomodation',
+    'car' => 'Car',
+    'route' => 'Route',
+    'service' => 'Service',
+    'cms_description' => 'Content Management System',
+    'cms' => 'CMS',
+    'slider_banner' => 'Slider Banner',
+    'blog' => 'Blog',
+    'testimony' => 'Testimony',
+    'legal' => 'Legal',
+    'privacy_policy' => 'Privacy & Policy',
+    'terms_conditions' => 'Terms & Conditions',
+    'disclaimer' => 'Disclaimer',
+    'administration_system' => 'Administration System',
+    'settings_user' => 'Settings & Users',
+    'setting' => 'Settings',
+    'user_role' => 'User & Role',
+    'user' => 'Users',
+    'role' => 'Roles',
+    'logout' => 'Log Out',
+
+];
