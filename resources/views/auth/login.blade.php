@@ -58,10 +58,8 @@
                 <a href="{{route('register')}}" class="text-center">{{__('auth.login.register')}}</a>
             </p>
         </div>
-        <!-- /.card-body -->
+
     </div>
-    <!-- /.card -->
 </div>
-<!-- /.login-box -->
 
 @endsection
