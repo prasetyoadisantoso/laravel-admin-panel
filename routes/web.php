@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 
@@ -16,6 +18,7 @@ use App\Http\Controllers\Admin\RoleController;
 |
 */
 
+
 Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
     /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
@@ -25,7 +28,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
      */
     Auth::routes(['verify' => true]);
 
-    // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('user', UserController::class);
     Route::get('user_datatable', [UserController::class, 'index_dt'])->name('user.datatable');
@@ -33,10 +36,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::resource('role', RoleController::class);
     Route::get('role_datatable', [RoleController::class, 'index_dt'])->name('role.datatable');
 
+
+
+
     /* Logout */
     Route::get('logout', function () {
         Auth::logout();
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
     });
 
 });

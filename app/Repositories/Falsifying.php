@@ -7,7 +7,7 @@
  * @return decryptor = $truthy,
  */
 
-namespace App\Helper;
+namespace App\Repositories;
 
 class Falsifying
 {
