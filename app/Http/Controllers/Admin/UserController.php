@@ -25,11 +25,11 @@ class UserController extends Controller
     public function __construct()
     {
         /* Authentication */
+        $this->middleware(['auth', 'verified']);
         $this->middleware('permission:role-home')->only(['index']);
         $this->middleware('permission:user-create')->only(['create', 'store']);
         $this->middleware('permission:user-edit')->only(['edit', 'update']);
         $this->middleware('permission:user-delete')->only(['destroy']);
-        $this->middleware(['auth', 'verified']);
 
         /* Global Function */
         GlobalFunction::global();
@@ -60,7 +60,7 @@ class UserController extends Controller
         $users = User::all();
         $result = Datatables::of($users)
             ->addColumn('image', function (User $user) {
-                return asset('assets/admin/image' . '/' . $user->image);
+                return asset('assets/Admin/Image' . '/' . $user->image);
             })
             ->addColumn('roles', function (User $user) {
                 return $user->getRoleNames()->map(function ($item) {
@@ -112,7 +112,7 @@ class UserController extends Controller
         /* Image Processing */
         if ($request->hasFile('image')) {
             $names = $request->file('image')->getClientOriginalName();
-            $request->file('image')->move(public_path() . '/assets/admin/image/', $names);
+            $request->file('image')->move(public_path() . '/assets/Admin/Image/', $names);
             $input['image'] = $names;
         }
 

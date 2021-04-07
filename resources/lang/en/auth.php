@@ -55,7 +55,8 @@ return [
     ],
 
     'verify' => [
-        'title' => 'Travel Booking System',
+        'title_1' => 'Laravel',
+        'title_2' => 'Admin Panel',
         'resend' => 'A fresh verification link has been sent to your email address.',
         'message' => 'We already send verification to your email.',
         're-resend' => 'click here to request another.',

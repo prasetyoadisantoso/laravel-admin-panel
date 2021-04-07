@@ -24,11 +24,11 @@ class DashboardController extends Controller
     public function __construct()
     {
         /* Authentication Permissions*/
+        $this->middleware(['auth', 'verified']);
         $this->middleware('permission:user-home')->only(['index']);
         $this->middleware('permission:user-create')->only(['create', 'store']);
         $this->middleware('permission:user-edit')->only(['edit', 'update']);
         $this->middleware('permission:user-delete')->only(['destroy']);
-        $this->middleware(['auth', 'verified']);
 
         /* Global Function */
         GlobalFunction::global();
