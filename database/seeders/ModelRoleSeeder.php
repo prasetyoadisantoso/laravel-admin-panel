@@ -16,10 +16,17 @@ class ModelRoleSeeder extends Seeder
     {
         //Insert to table model_has_roles for connect user with roles
         DB::table('model_has_roles')->insert([
+
             [
                 'role_id' => 1,
                 'model_type' => 'App\Models\User',
                 'model_id' => '0c7c66496-32cf-476b-a5b4-d47d9723d9'
+            ],
+
+            [
+                'role_id' => 1,
+                'model_type' => 'App\Models\User',
+                'model_id' => '0c5c66496-32cf-476b-b5b4-d47d9723a9'
             ],
 
             [

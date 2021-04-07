@@ -57,7 +57,7 @@
         {{-- User Profile --}}
         <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                <img src="{{asset('assets/Admin/AdminLTE/dist/img/user2-160x160.jpg')}}"
+                <img src="{{asset('assets/Admin/Image') . '/' . $user->image}}"
                     class="user-image img-circle elevation-2" alt="User Image">
                 <span class="d-none d-md-inline">{{$user->name}}</span>
             </a>
@@ -65,8 +65,8 @@
 
                 {{-- User Information --}}
                 <li class="user-header bg-primary">
-                    <img src="{{asset('assets/Admin/AdminLTE/dist/img/user2-160x160.jpg')}}"
-                        class="img-circle elevation-2" alt="User Image">
+                    <img src="{{asset('assets/Admin/Image') . '/' . $user->image}}"
+                        class="user-image img-circle elevation-2" alt="User Image">
                     <p>
                         {{$user->name}}
                         <small>{{__('header.member_verified')}} , {{$member_verified}}</small>
@@ -75,7 +75,8 @@
 
                 {{-- Logout and Profile --}}
                 <li class="user-footer">
-                    <a href="#" class="btn btn-default btn-flat">{{__('header.profile')}}</a>
+                    <a href="{{route('user.edit', Falsifying::falsify($user->id))}}"
+                        class="btn btn-default btn-flat">{{__('header.profile')}}</a>
                     <a href="{{route('logout')}}"
                         class="btn btn-default btn-flat float-right">{{__('sidebar.logout')}}</a>
                 </li>
@@ -85,4 +86,3 @@
     </ul>
 
 </nav>
-

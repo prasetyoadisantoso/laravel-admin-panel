@@ -14,6 +14,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use App\Repositories\GlobalFunction;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -237,7 +238,7 @@ class UserController extends Controller
         /* Image Processing */
         if ($request->hasFile('image')) {
             $names = $request->file('image')->getClientOriginalName();
-            $request->file('image')->move(public_path() . '/assets/admin/image/', $names);
+            $request->file('image')->move(public_path() . '/assets/Admin/Image/', $names);
             $input['image'] = $names;
         }
 

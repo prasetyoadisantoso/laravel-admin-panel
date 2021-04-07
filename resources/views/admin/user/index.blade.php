@@ -100,6 +100,7 @@
 </div> --}}
 <!-- End Confirmation Message -->
 
+
 <!-- Modal Pop-Up Area -->
 <div class="modal fade" id="modal-user">
     <div class="modal-dialog">
@@ -126,8 +127,6 @@
                                     <dd id="full-name"></dd>
                                     <dt>Email: </dt>
                                     <dd id="email"></dd>
-                                    <dt>{{__('user.modal.phone')}}</dt>
-                                    <dd id="phone"></dd>
                                     <dt>{{__('user.modal.role')}}</dt>
                                     <dd id="role"></dd>
                                     <dt>Status : </dt>
@@ -143,6 +142,7 @@
     </div>
 </div>
 <!-- End Modal Pop-Up Area -->
+
 
 
 @endsection
@@ -163,7 +163,7 @@
             columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex'},
             { data: 'name' },
-            { data: 'image', render: function (data, type, full, meta) { return '<img class="img-fluid" src="' + data + '">'}},
+            { data: 'image', className: "w-25", render: function (data, type, full, meta) { return '<img class="img-fluid w-50" src="' + data + '">'}},
             { data: 'email'},
             { data: 'roles'},
             { data: 'action', name: 'action', orderable: false, searchable: false },
@@ -243,6 +243,7 @@
     });
 </script>
 
+@can('user-show')
 <script alt="Modal Detail User">
     /* Get data user and send to modal */
     $(document).on('click', '#modal', function() {
@@ -262,5 +263,6 @@
         });
     });
 </script>
+@endcan
 
 @endpush
