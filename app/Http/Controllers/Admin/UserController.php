@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Models\User;
 use Yajra\DataTables\Facades\DataTables;
-use App\Traits\Falsifying;
+use App\Repositories\Falsifying;
 use App\Http\Requests\UserFormRequest;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
@@ -14,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
+use App\Repositories\GlobalFunction;
 
 class UserController extends Controller
 {
@@ -31,11 +31,9 @@ class UserController extends Controller
         $this->middleware('permission:user-delete')->only(['destroy']);
         $this->middleware(['auth', 'verified']);
 
-        /* Localization */
-        view()->share('current_locale', LaravelLocalization::getCurrentLocale());
+        /* Global Function */
+        GlobalFunction::global();
 
-        /* Route Name */
-        view()->share('route_name', Route::currentRouteName());
     }
 
     /**
@@ -45,10 +43,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $route_name = Route::currentRouteName();
+        $user = true;
         return view('admin.user.index')->with([
-            'route_name' => $route_name
-        ]);;
+            'user_page' => $user
+        ]);
     }
 
     /**
@@ -70,7 +68,7 @@ class UserController extends Controller
                 })->implode('<br>');
             })
             ->addColumn('action', function ($user) {
-                return '<button type="button" class="btn shadow-sm btn-rounded text-muted" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' . __('user.datatable.action') . '<i class="fas fa-cog ml-2"></i></button> <div class="dropdown-menu dropdown-menu-right"> <button class="dropdown-item text-gray show-user" href="/user/' . Falsifying::falsify($user->id) . '" id="modal"><i class="far fa-eye mr-3"></i>' . __('user.datatable.show') . '</button> <a class="dropdown-item text-gray" href="' . route('user.edit', Falsifying::falsify($user->id)) . '"><i class="fas fa-pen-square mr-3"></i>' . __('user.datatable.edit') . '</a> <a class="dropdown-item text-gray" href="'. route('user.destroy', Falsifying::falsify($user->id)) .'" id="delete"><i class="fas fa-trash mr-3"></i>' . __('user.datatable.delete') . '</a></div>';
+                return '<button type="button" class="btn btn-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' . __('user.datatable.action') . '<i class="fas fa-cog ml-2"></i></button> <div class="dropdown-menu dropdown-menu-right"> <button class="dropdown-item text-success show-user" href="/user/' . Falsifying::falsify($user->id) . '" id="modal"><i class="far fa-eye mr-3"></i>' . __('user.datatable.show') . '</button> <a class="dropdown-item text-primary" href="' . route('user.edit', Falsifying::falsify($user->id)) . '"><i class="fas fa-pen-square mr-3"></i>' . __('user.datatable.edit') . '</a> <a class="dropdown-item text-red" href="'. route('user.destroy', Falsifying::falsify($user->id)) .'" id="delete"><i class="fas fa-trash mr-3"></i>' . __('user.datatable.delete') . '</a></div>';
             })
             ->removeColumn('id')->addIndexColumn()->make('true');
 

@@ -23,8 +23,8 @@
     <!-- DataTables -->
     <link rel="stylesheet" href="{{asset('assets/Admin/AdminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet"
-        href="{{asset('assets/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/Admin/AdminLTE/css/style.css')}}">
+        href="{{asset('assets/Admin/AdminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('assets/Admin/AdminLTE/css/style.css')}}"> --}}
     <link rel="stylesheet" href="{{asset('assets/Admin/AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
     <!-- SweetAlert2 -->
     <link rel="stylesheet" href="{{asset('assets/Admin/AdminLTE/plugins/sweetalert2/sweetalert2.min.css')}}">
@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="{{asset('assets/Admin/AdminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini">
 
     <!-- Main Page Wrapper -->
     <div class="wrapper">

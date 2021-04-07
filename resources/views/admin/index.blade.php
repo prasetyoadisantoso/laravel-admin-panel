@@ -3,6 +3,7 @@
 @section('administrator')
 
 @include('admin.partial.header')
+
 @include('admin.partial.sidebar')
 
 
@@ -22,7 +23,6 @@
 
 </div>
 <!-- /.content-wrapper -->
-
 
 @include('admin.partial.footer')
 

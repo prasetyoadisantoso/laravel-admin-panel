@@ -17,7 +17,7 @@
 
                 {{-- Dashboard --}}
                 <li class="nav-item">
-                    <a href="{{route('dashboard')}}" class="nav-link active">
+                    <a href="{{route('dashboard')}}" class="nav-link {{ isset($dashboard_page) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             {{__('sidebar.dashboard')}}
@@ -62,7 +62,7 @@
 
                 {{-- Administration System --}}
                 <li class="nav-header">{{__('sidebar.administration_system')}}</li>
-                <li class="nav-item has-treeview">
+                <li class="nav-item has-treeview {{isset($user_page) | isset($setting_page) | isset($role_page)  ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="fas fa-users-cog nav-icon"></i>
                         <p>
@@ -77,7 +77,7 @@
                                 <p>{{__('sidebar.setting')}}</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item has-treeview {{isset($user_page) | isset($role_page) ? 'menu-open' : '' }}">
                             </a>
                             <a href="#" class="nav-link">
                                 <i class="fas fa-user-shield nav-icon"></i>
@@ -88,13 +88,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{route('user.index')}}" class="nav-link">
+                                    <a href="{{route('user.index')}}" class="nav-link {{isset($user_page) ? 'active' : '' }}">
                                         <i class="fas fa-user nav-icon"></i>
                                         <p>{{__('sidebar.user')}}</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('role.index')}}" class="nav-link">
+                                    <a href="{{route('role.index')}}" class="nav-link {{isset($role_page) ? 'active' : '' }}">
                                         <i class="fas fa-shield-alt nav-icon"></i>
                                         <p>{{__('sidebar.role')}}</p>
                                     </a>

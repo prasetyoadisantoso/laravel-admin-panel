@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
                 'id' => '1ba52599d-0049-4921-9715-7ae411f188',
                 'name' => 'Client One',
                 'image' => 'image-2.jpg',
-                'email' => 'member-one@system.io',
+                'email' => 'client-one@system.io',
                 'password' => Hash::make('123456'),
                 'email_verified_at' => date("Y-m-d H:i:s"),
             ],
