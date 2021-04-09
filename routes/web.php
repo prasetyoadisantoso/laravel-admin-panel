@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 
@@ -29,6 +30,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Auth::routes(['verify' => true]);
 
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+
+    Route::resource('setting', SettingController::class);
 
     Route::resource('user', UserController::class);
     Route::get('user_datatable', [UserController::class, 'index_dt'])->name('user.datatable');

@@ -61,7 +61,7 @@ class UserController extends Controller
         $users = User::all();
         $result = Datatables::of($users)
             ->addColumn('image', function (User $user) {
-                return asset('assets/Admin/Image' . '/' . $user->image);
+                return asset('assets/Image/User' . '/' . $user->image);
             })
             ->addColumn('roles', function (User $user) {
                 return $user->getRoleNames()->map(function ($item) {
@@ -232,6 +232,7 @@ class UserController extends Controller
      */
     public function update(UserFormRequest $request, $id)
     {
+
         /* Validating Request */
         $request->validated();
         $input = $request->all();

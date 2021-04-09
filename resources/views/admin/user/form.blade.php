@@ -72,7 +72,7 @@
                                     @if (isset($edit_section))
 
                                     @if ($image != null)
-                                    <img class="img-fluid img-circle" src="{{asset('assets/Admin/Image/' . $image)}}"
+                                    <img class="img-fluid img-circle" src="{{asset('assets/Image/User/' . $image)}}"
                                         alt="User profile picture" id="profileImage" style="width: 128px;">
                                     @endif
 

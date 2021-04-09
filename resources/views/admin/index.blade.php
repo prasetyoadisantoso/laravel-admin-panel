@@ -13,6 +13,9 @@
     {{-- Dashboard Page --}}
     @yield('dashboard')
 
+    {{-- Setting Page --}}
+    @yield('setting')
+
     {{-- User Page --}}
     @yield('user')
     @yield('form-user')

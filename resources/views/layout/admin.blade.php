@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Laravel Admin Panel | {{isset($route_name) ?  ucfirst(strtok($route_name, '.')) : ''}}</title>
+    <link rel="icon" href="{{asset('assets/Image/Brand') . '/' . $favicon}}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,6 +65,9 @@
     <script src="{{asset('assets/Admin/AdminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
     <script src="{{asset('assets/Admin/AdminLTE/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
     <!-- End DataTables Script -->
+
+    {{-- Setting Script --}}
+    @stack('setting')
 
     {{-- User Script --}}
     @stack('home-user')

@@ -3,9 +3,9 @@
 
     {{-- Brand Logo --}}
     <a href="#" class="brand-link">
-        <img src="{{asset('assets/Admin/AdminLTE/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
+        <img src="{{asset('assets/Image/Brand') . '/' . $site_logo}}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light text-nowrap">{{__('sidebar.title')}}</span>
+        <span class="brand-text font-weight-light text-wrap">Admin Panel</span>
     </a>
 
     {{-- Sidebar Section --}}
@@ -72,7 +72,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="../settings/index.html" class="nav-link">
+                            <a href="{{route('setting.index')}}" class="nav-link {{isset($setting_page) ? 'active' : '' }}" >
                                 <i class="fas fa-cogs nav-icon"></i>
                                 <p>{{__('sidebar.setting')}}</p>
                             </a>

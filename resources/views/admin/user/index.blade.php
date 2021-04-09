@@ -254,7 +254,7 @@
             cache: false,
             success : function (data) {
                 $("#modal-user").modal('show');
-                $("#image").attr("src", "{{asset('assets/Admin/Image')}}"+"/"+data[0].image);
+                $("#image").attr("src", "{{asset('assets/Image/User')}}"+"/"+data[0].image);
                 $('#full-name').html(data[0].name);
                 $('#email').html(data[0].email);
                 $('#role').html(data[1]);
