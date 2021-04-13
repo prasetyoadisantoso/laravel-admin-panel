@@ -65,6 +65,13 @@ class SettingController extends Controller
         return $settings;
     }
 
+    public function edit($id)
+    {
+        $settings = Setting::find($id);
+
+        return $settings;
+    }
+
     /**
      * Update the specified resource in storage.
      *
