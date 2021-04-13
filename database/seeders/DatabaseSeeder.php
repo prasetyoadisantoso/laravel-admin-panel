@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
             // Settings
             SettingSeeder::class,
 
+            // Legal
+            LegalSeeder::class,
         ]);
     }
 }

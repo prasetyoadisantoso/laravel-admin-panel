@@ -40,19 +40,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="../legal/privacy-policy.html" class="nav-link">
+                            <a href="{{route('legal', 'privacy-policy')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('sidebar.privacy_policy')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../legal/terms-conditions.html" class="nav-link">
+                            <a href="{{route('legal', 'terms-conditions')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('sidebar.terms_conditions')}}</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../legal/disclaimer.html" class="nav-link">
+                            <a href="{{route('legal', 'disclaimer')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{__('sidebar.disclaimer')}}</p>
                             </a>

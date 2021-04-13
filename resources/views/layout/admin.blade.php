@@ -30,9 +30,14 @@
     <!-- SweetAlert2 -->
     <link rel="stylesheet" href="{{asset('assets/Admin/AdminLTE/plugins/sweetalert2/sweetalert2.min.css')}}">
     <script src="{{asset('assets/Admin/AdminLTE/plugins/sweetalert2/sweetalert2.all.min.js')}}"></script>
+
     <!-- Select2 -->
     <link rel="stylesheet" href="{{asset('assets/Admin/AdminLTE/plugins/select2/css/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/Admin/AdminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+
+    {{-- Legal CSS --}}
+    @stack('legal-css')
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -65,6 +70,9 @@
     <script src="{{asset('assets/Admin/AdminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
     <script src="{{asset('assets/Admin/AdminLTE/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
     <!-- End DataTables Script -->
+
+    {{-- Legal JS --}}
+    @stack('legal-js')
 
     {{-- Setting Script --}}
     @stack('setting')
