@@ -75,7 +75,7 @@
 
                                 @foreach ($logo_tab as $item)
                                 <tr>
-                                    <td>{{$item->name}}</td>
+                                    <td>{{__('setting.list')[$item->id]}}</td>
                                     <td>{{$item->value}}</td>
                                     <td>
                                         <button type="button" class="btn btn-md btn-default" data-toggle="dropdown"
@@ -109,7 +109,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($general_tab as $item)
-                                    <td>{{$item->name}}</td>
+                                    <td>{{__('setting.list')[$item->id]}}</td>
                                     <td>{{$item->value}}</td>
                                     <td>
                                         <button type="button" class="btn btn-md btn-default"
@@ -156,7 +156,7 @@
                                 {{-- Additional Page Foreach --}}
                                 @foreach ($additional_tab as $item)
                                 <tr>
-                                    <td>{{$item->name}}</td>
+                                    <td>{{__('setting.list')[$item->id]}}</td>
                                     <td>{{$item->value}}</td>
                                     <td>
                                         <button type="button" class="btn shadow-sm btn-rounded text-muted"
