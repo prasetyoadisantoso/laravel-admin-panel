@@ -50,6 +50,12 @@
                             aria-controls="custom-content-above-messages"
                             aria-selected="false">{{__('setting.content.tab.additional_pages')}}</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="custom-content-above-personalization-tab" data-toggle="pill"
+                            href="#custom-content-above-personalization" role="tab"
+                            aria-controls="custom-content-above-personalization"
+                            aria-selected="false">{{__('setting.content.tab.personalization')}}</a>
+                    </li>
                 </ul>
                 <div class="tab-content" id="custom-content-above-tabContent">
 
@@ -173,6 +179,22 @@
 
                             </tbody>
                         </table>
+                    </div>
+
+                    {{-- Personalization Page Tab --}}
+                    <div class="tab-pane fade" id="custom-content-above-personalization" role="tabpanel"
+                        aria-labelledby="custom-content-above-personalization-tab">
+                        <br>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Theme</h5>
+                            </div>
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>

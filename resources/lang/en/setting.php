@@ -18,7 +18,8 @@ return [
             'logo_favicon' => 'Logo & Favicon',
             'general' => 'General',
             'seo' => 'SEO',
-            'additional_pages' => 'Additional Pages'
+            'additional_pages' => 'Additional Pages',
+            'personalization' => 'Personalization'
         ],
 
         'table' => [

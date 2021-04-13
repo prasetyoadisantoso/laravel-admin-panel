@@ -7,6 +7,7 @@ use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Repositories\GlobalFunction;
 use DB;
+use Illuminate\Support\Facades\File;
 
 class SettingController extends Controller
 {
