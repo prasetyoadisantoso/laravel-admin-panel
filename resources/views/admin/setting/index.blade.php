@@ -50,6 +50,12 @@
                             aria-controls="custom-content-above-messages"
                             aria-selected="false">{{__('setting.content.tab.additional_pages')}}</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="custom-content-above-personalization-tab" data-toggle="pill"
+                            href="#custom-content-above-personalization" role="tab"
+                            aria-controls="custom-content-above-personalization"
+                            aria-selected="false">{{__('setting.content.tab.personalization')}}</a>
+                    </li>
                 </ul>
                 <div class="tab-content" id="custom-content-above-tabContent">
 
@@ -67,13 +73,9 @@
                             </thead>
                             <tbody>
 
-                                @foreach ($general as $key => $item)
-                                @if($key > 1)
-                                @continue
-                                @endif
-
+                                @foreach ($logo_tab as $item)
                                 <tr>
-                                    <td>{{$item->name}}</td>
+                                    <td>{{__('setting.list')[$item->id]}}</td>
                                     <td>{{$item->value}}</td>
                                     <td>
                                         <button type="button" class="btn btn-md btn-default" data-toggle="dropdown"
@@ -106,9 +108,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($general as $key => $item)
-                                @if($key > 11 || $key < 2) @continue @endif <tr>
-                                    <td>{{$item->name}}</td>
+                                @foreach ($general_tab as $item)
+                                    <td>{{__('setting.list')[$item->id]}}</td>
                                     <td>{{$item->value}}</td>
                                     <td>
                                         <button type="button" class="btn btn-md btn-default"
@@ -153,10 +154,9 @@
                             <tbody>
 
                                 {{-- Additional Page Foreach --}}
-                                @foreach ($general as $key => $item)
-                                @if ($key < 12) @continue @endif
+                                @foreach ($additional_tab as $item)
                                 <tr>
-                                    <td>{{$item->name}}</td>
+                                    <td>{{__('setting.list')[$item->id]}}</td>
                                     <td>{{$item->value}}</td>
                                     <td>
                                         <button type="button" class="btn shadow-sm btn-rounded text-muted"
@@ -173,6 +173,22 @@
 
                             </tbody>
                         </table>
+                    </div>
+
+                    {{-- Personalization Page Tab --}}
+                    <div class="tab-pane fade" id="custom-content-above-personalization" role="tabpanel"
+                        aria-labelledby="custom-content-above-personalization-tab">
+                        <br>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Theme</h5>
+                            </div>
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
@@ -244,6 +260,7 @@
 
 @push('setting')
 <script alt="Modal Setting">
+
     /* Show Modal Logo*/
     $(document).on('click', '#modal-logo', function() {
         var link = $(this).attr('href');
@@ -276,10 +293,6 @@
             }
         });
     });
-
-
-
-
 
     /* Submit Logo*/
     $(document).ready(function () {

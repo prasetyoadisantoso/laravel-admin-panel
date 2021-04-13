@@ -7,6 +7,7 @@ use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Repositories\GlobalFunction;
 use DB;
+use Illuminate\Support\Facades\File;
 
 class SettingController extends Controller
 {
@@ -37,32 +38,17 @@ class SettingController extends Controller
     public function index()
     {
         $setting = true;
-        $general = Setting::all();
+
+        $logo_tab = Setting::where('id', '<=', 2)->get();
+        $general_tab = Setting::where('id', '>', 2)->take(10)->get();
+        $additional_tab = Setting::orderBy('id', 'DESC')->take(4)->get()->reverse();
+
         return view('admin.setting.index')->with([
-            'general' => $general,
+            'logo_tab' => $logo_tab,
+            'general_tab' => $general_tab,
+            'additional_tab' => $additional_tab,
             'setting_page' => $setting
         ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        \dd($request);
     }
 
     /**
@@ -74,19 +60,6 @@ class SettingController extends Controller
     public function show($id)
     {
 
-        $settings = Setting::find($id);
-
-        return $settings;
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
         $settings = Setting::find($id);
 
         return $settings;
@@ -115,7 +88,7 @@ class SettingController extends Controller
             } else {
                 if ($request->hasFile('image')) {
                     $names = $request->file('image')->getClientOriginalName();
-                    $request->file('image')->move(public_path() . '/assets/Admin/Image/Brand/', $names);
+                    $request->file('image')->move(public_path() . '/assets/Image/Brand/', $names);
                     $input['image'] = $names;
                     $settings->value = $input['image'];
                 }

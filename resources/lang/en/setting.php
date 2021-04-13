@@ -18,7 +18,8 @@ return [
             'logo_favicon' => 'Logo & Favicon',
             'general' => 'General',
             'seo' => 'SEO',
-            'additional_pages' => 'Additional Pages'
+            'additional_pages' => 'Additional Pages',
+            'personalization' => 'Personalization'
         ],
 
         'table' => [
@@ -37,5 +38,31 @@ return [
         'modal' => [
             'submit' => 'Submit'
         ]
+    ],
+
+    'list' => [
+
+        /* Logo Tab */
+        1 => 'Site Logo',
+        2 => 'Site Favicon',
+
+        /* General Tab */
+        3 => 'Site Name',
+        4 => 'Site Description',
+        5 => 'Site URL',
+        6 => 'Google Analytic ID',
+        7 => 'Google Tag Manager',
+        8 => 'Contact Email',
+        9 => 'Contact Address',
+        10 => 'Contact Phone',
+        11 => 'Social Facebook',
+        12 => 'Social Instagram',
+
+        /* Additional Tab */
+        13 => 'Copyright',
+        14 => 'FAQ',
+        15 => 'About Us',
+        16 => 'Cookies Concern'
+
     ],
 ];
