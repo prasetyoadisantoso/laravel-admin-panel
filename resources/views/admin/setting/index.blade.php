@@ -73,11 +73,7 @@
                             </thead>
                             <tbody>
 
-                                @foreach ($general as $key => $item)
-                                @if($key > 1)
-                                @continue
-                                @endif
-
+                                @foreach ($logo_tab as $item)
                                 <tr>
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->value}}</td>
@@ -112,8 +108,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($general as $key => $item)
-                                @if($key > 11 || $key < 2) @continue @endif <tr>
+                                @foreach ($general_tab as $item)
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->value}}</td>
                                     <td>
@@ -159,8 +154,7 @@
                             <tbody>
 
                                 {{-- Additional Page Foreach --}}
-                                @foreach ($general as $key => $item)
-                                @if ($key < 12) @continue @endif
+                                @foreach ($additional_tab as $item)
                                 <tr>
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->value}}</td>
@@ -266,6 +260,7 @@
 
 @push('setting')
 <script alt="Modal Setting">
+
     /* Show Modal Logo*/
     $(document).on('click', '#modal-logo', function() {
         var link = $(this).attr('href');
@@ -298,10 +293,6 @@
             }
         });
     });
-
-
-
-
 
     /* Submit Logo*/
     $(document).ready(function () {
