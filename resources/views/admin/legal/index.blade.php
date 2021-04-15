@@ -2,13 +2,13 @@
 
 @section('legal')
 
-<!-- Content Header (Page header) -->
+{{-- Breadcrumb Header --}}
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="m-0 text-dark">{{__('legal.breadcrumb.title')}}</h1>
-            </div><!-- /.col -->
+            </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a
@@ -16,14 +16,14 @@
                     </li>
                     <li class="breadcrumb-item active">{{$page_title}}</li>
                 </ol>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
+            </div>
+        </div>
+    </div>
 </section>
-<!-- /.content-header -->
 
 @include('admin.partial.flash')
 
+{{-- Main Content --}}
 <div class="container">
     <div class="card card-outline card-primary">
         <div class="card-header">
@@ -31,7 +31,6 @@
                 {{$page_title}}
             </h3>
         </div>
-        <!-- /.card-header -->
         <form action="{{route('legal.update', $page_type)}}" method="POST">
             @csrf
             <input type="hidden" name="type" value="{{$page_type}}">
