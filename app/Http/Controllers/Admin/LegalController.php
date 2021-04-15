@@ -13,7 +13,7 @@ class LegalController extends Controller
 {
 
     /**
-     * First gateway with middleware, spatie, localization, etc.
+     * First Gateway and Boot
      *
      * @return void
      */
@@ -40,6 +40,7 @@ class LegalController extends Controller
         /* Legal input checker */
         $selected = ['terms-conditions', 'disclaimer', 'privacy-policy'];
 
+        /* Throw to 404 page if type not exist */
         if (!in_array($type, $selected)) {
             abort(404);
         }
@@ -59,6 +60,7 @@ class LegalController extends Controller
     }
 
 
+    /* Store, Update for Legal Page */
     public function saveType(LegalFormRequest $request)
     {
         DB::beginTransaction();
@@ -81,82 +83,5 @@ class LegalController extends Controller
         return redirect()->back()->with([
             'success' => __('legal.notification.update_success')
         ]);
-    }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

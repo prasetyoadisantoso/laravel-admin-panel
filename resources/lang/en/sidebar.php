@@ -1,6 +1,5 @@
 <?php
 return [
-
     'title' => 'AdminLTE',
     'dashboard' => 'Dashboard',
     'module' => 'Module Installed',
@@ -15,5 +14,5 @@ return [
     'user' => 'Users',
     'role' => 'Roles',
     'logout' => 'Log Out',
-
+    'module_empty' => 'Module is Empty',
 ];

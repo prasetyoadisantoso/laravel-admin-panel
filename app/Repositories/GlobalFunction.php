@@ -27,6 +27,20 @@ class GlobalFunction
         /* Member Verified */
         view()->share('member_verified', Carbon::now()->isoFormat('Y MMMM D') );
 
+        /**
+         * From Module
+         *
+         * @return module
+         */
+        $module = new GlobalFunction();
+        if (!empty($module->module())) {
+            view()->share('module', $module->module());
+        } else {
+            view()->share('module', __('sidebar.module_empty'));
+        }
+
+
+
 
         /**
          * From Settings
@@ -46,6 +60,17 @@ class GlobalFunction
         /* Site Copyright */
         view()->share('copyright', Setting::where('id', 13)->pluck('value')->first());
 
+    }
+
+    /* Render Module to front-end */
+    public function module()
+    {
+        /* Get Content from module file in root */
+        $json = file_get_contents(base_path('modules_statuses.json'));
+        $jsonLow = strtolower($json);
+        $modules = json_decode($jsonLow, true);
+
+        return $modules;
     }
 
 }
