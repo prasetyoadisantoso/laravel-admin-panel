@@ -13,7 +13,7 @@ class SettingController extends Controller
 {
 
     /**
-     * First gateway with middleware, spatie, localization, etc.
+     * First gateway and boot
      *
      * @return void
      */
@@ -39,8 +39,13 @@ class SettingController extends Controller
     {
         $setting = true;
 
+        /* Get database Logo Tab */
         $logo_tab = Setting::where('id', '<=', 2)->get();
+
+        /* Get database General Tab */
         $general_tab = Setting::where('id', '>', 2)->take(10)->get();
+
+        /* Get database additional Tab */
         $additional_tab = Setting::orderBy('id', 'DESC')->take(4)->get()->reverse();
 
         return view('admin.setting.index')->with([
@@ -59,7 +64,7 @@ class SettingController extends Controller
      */
     public function show($id)
     {
-
+        /* Get setting from database */
         $settings = Setting::find($id);
 
         return $settings;
@@ -78,7 +83,7 @@ class SettingController extends Controller
         $settings = Setting::find($id);
         $input = $request->all();
 
-        /* Store Transaction */
+        /* Store / Update Transaction */
         DB::beginTransaction();
 
         try {
@@ -107,14 +112,4 @@ class SettingController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

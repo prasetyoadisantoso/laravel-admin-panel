@@ -182,10 +182,10 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h5>Theme</h5>
+                                <h5>Template</h5>
                             </div>
                             <div class="card-body">
-
+                                <h3>Coming Soon!</h3>
                             </div>
                         </div>
 
