@@ -62,15 +62,13 @@ class GlobalFunction
 
     }
 
+    /* Render Module to front-end */
     public function module()
     {
         /* Get Content from module file in root */
         $json = file_get_contents(base_path('modules_statuses.json'));
         $jsonLow = strtolower($json);
         $modules = json_decode($jsonLow, true);
-
-
-        // \dd($string);
 
         return $modules;
     }
