@@ -13,6 +13,9 @@
     {{-- Dashboard Page --}}
     @yield('dashboard')
 
+    {{-- Module Page --}}
+    @yield('module')
+
     {{-- Legal Page --}}
     @yield('legal')
 
