@@ -16,6 +16,10 @@ class CMSDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call("OthersTableSeeder");
+        $this->call([
+            PostTableSeeder::class,
+            CategoryTableSeeder::class,
+            CategoryPostTableSeeder::class,
+        ]);
     }
 }

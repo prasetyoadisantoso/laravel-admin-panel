@@ -6,6 +6,8 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Carbon;
 use App\Models\Setting;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class GlobalFunction
 
@@ -27,6 +29,9 @@ class GlobalFunction
         /* Member Verified */
         view()->share('member_verified', Carbon::now()->isoFormat('Y MMMM D') );
 
+        /* Auth User */
+        view()->share('user', Auth::user() );
+
         /**
          * From Module
          *
@@ -38,8 +43,6 @@ class GlobalFunction
         } else {
             view()->share('module', __('sidebar.module_empty'));
         }
-
-
 
 
         /**
@@ -71,6 +74,13 @@ class GlobalFunction
         $modules = json_decode($jsonLow, true);
 
         return $modules;
+    }
+
+    /* Report Error */
+    public static function report($input)
+    {
+       $result = File::put(\storage_path('logs/error.txt'), $input);
+       return $result;
     }
 
 }

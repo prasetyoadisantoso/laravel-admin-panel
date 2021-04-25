@@ -30,13 +30,15 @@
     <!-- SweetAlert2 -->
     <link rel="stylesheet" href="{{asset('assets/Admin/AdminLTE/plugins/sweetalert2/sweetalert2.min.css')}}">
     <script src="{{asset('assets/Admin/AdminLTE/plugins/sweetalert2/sweetalert2.all.min.js')}}"></script>
-
     <!-- Select2 -->
     <link rel="stylesheet" href="{{asset('assets/Admin/AdminLTE/plugins/select2/css/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/Admin/AdminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
 
     {{-- Legal CSS --}}
     @stack('legal-css')
+
+    {{-- Module CSS --}}
+    @stack('module-css')
 
 </head>
 
@@ -84,6 +86,9 @@
     {{-- Role Script --}}
     @stack('home-role')
     @stack('form-role')
+
+    {{-- From Module --}}
+    @stack('module-js')
 
 </body>
 

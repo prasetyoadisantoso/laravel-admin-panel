@@ -20,7 +20,7 @@
             text:"{{ session()->get('error') }}",
             timer:100000,
             type:'error'
-            });
+    });
 </script>
 @endif
 

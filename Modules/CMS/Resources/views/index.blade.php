@@ -12,7 +12,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="{{route('cms')}}">{{__('cms::dashboard.breadcrumb.home')}}</a>
+                    <li class="breadcrumb-item"><a href="{{route('cms.index')}}">{{__('cms::dashboard.breadcrumb.home')}}</a>
                     </li>
                     <li class="breadcrumb-item active">{{__('cms::dashboard.breadcrumb.administrator')}}</li>
                 </ol>
@@ -53,7 +53,7 @@
                     <div class="icon">
                         <i class="fas fa-pen-fancy"></i>
                     </div>
-                    <a href="#" class="small-box-footer">{{__('cms::dashboard.content.more_info')}}</a>
+                    <a href="{{route('posts.index')}}" class="small-box-footer">{{__('cms::dashboard.content.more_info')}}</a>
                 </div>
             </div>
 

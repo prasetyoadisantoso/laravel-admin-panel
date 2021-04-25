@@ -17,13 +17,14 @@ use Modules\CMS\Http\Controllers\CategoriesController;
 Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
     /* CMS */
-    Route::prefix('cms')->group(function () {
-        Route::get('/', 'CMSController@index')->name('cms');
-    });
+    Route::resource('cms', 'CMSController');
 
     /* Posts */
-    Route::resource('posts', PostsController::class);
+    Route::resource('posts', 'PostsController');
+    Route::post('images', 'PostsController@uploadImage')->name('post.image');
+    Route::get('posts_datatable', [PostsController::class, 'index_dt'])->name('posts.datatable');
+
 
     /* Categories */
-    Route::resource('categories', CategoriesController::class);
+    // Route::resource('categories', CategoriesController::class);
 });
