@@ -20,6 +20,7 @@ class CMSDatabaseSeeder extends Seeder
             PostTableSeeder::class,
             CategoryTableSeeder::class,
             CategoryPostTableSeeder::class,
+            CMSPermissionTableSeeder::class,
         ]);
     }
 }

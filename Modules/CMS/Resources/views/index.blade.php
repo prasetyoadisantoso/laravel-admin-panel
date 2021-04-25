@@ -67,7 +67,7 @@
                     <div class="icon">
                         <i class="fas fa-list-ol"></i>
                     </div>
-                    <a href="{{url('post')}}" class="small-box-footer">{{__('cms::dashboard.content.more_info')}} <i
+                    <a href="{{route('categories.index')}}" class="small-box-footer">{{__('cms::dashboard.content.more_info')}} <i
                             class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>

@@ -26,5 +26,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
 
     /* Categories */
-    // Route::resource('categories', CategoriesController::class);
+    Route::resource('categories', 'CategoriesController');
+    Route::get('categories_datatable', [CategoriesController::class, 'index_dt'])->name('categories.datatable');
+
 });
