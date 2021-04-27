@@ -59,6 +59,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
+        /* Check Category Home Page */
         $category = true;
         return view('cms::categories.index')->with([
             'category_page' => $category
@@ -71,6 +72,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
+        /* Check Create Section */
         $create = true;
 
         return view('cms::categories.form')->with([
@@ -89,8 +91,8 @@ class CategoriesController extends Controller
         $request->validated();
         $input = $request->all();
 
+        /* Begin store to Database */
         DB::beginTransaction();
-
         try {
 
             /* Store to Category Database */
@@ -159,8 +161,8 @@ class CategoriesController extends Controller
         $request->validated();
         $input = $request->all();
 
+        /* Begin update from database */
         DB::beginTransaction();
-
         try {
             /* Update Category */
             $category = Category::find($id);
@@ -188,7 +190,7 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-         /* Find Post by ID */
+         /* Find Category by ID */
          $delete = Category::where('id', Falsifying::truthy($id))->delete();
 
          // check data deleted or not

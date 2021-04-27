@@ -4,6 +4,7 @@ return [
     'breadcrumb' => [
         'title' => 'Categories',
         'home' => 'Home',
+        'cms' => 'CMS',
         'administrator' => 'Categories Dashboard',
         'create' => 'Create a Category',
         'edit' => 'Edit Category',
@@ -11,7 +12,7 @@ return [
 
     'jumbotron' => [
         'title' => 'Category',
-        'subtitle' => 'Manage your category',
+        'subtitle' => 'Manage your category for your posts',
         'create' => 'Create a Category',
         'edit' => 'Edit Category',
         'info' => 'Create/edit/delete, your own category '

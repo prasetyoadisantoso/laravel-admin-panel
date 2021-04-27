@@ -47,7 +47,7 @@
             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="small-box bg-primary">
                     <div class="inner">
-                        <h3>12</h3>
+                        <h3>{{$total_post}}</h3>
                         <p>{{__('cms::dashboard.content.total_posts')}}</p>
                     </div>
                     <div class="icon">
@@ -61,7 +61,7 @@
             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="small-box bg-info">
                     <div class="inner">
-                        <h3>13</h3>
+                        <h3>{{$total_category}}</h3>
                         <p>{{__('cms::dashboard.content.total_categories')}}</p>
                     </div>
                     <div class="icon">
@@ -76,14 +76,14 @@
             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="small-box bg-purple">
                     <div class="inner">
-                        <h3>Sample Post 1</sup></h3>
+                        <h3>{{$late_post->title}}</sup></h3>
 
                         <p>{{__('cms::dashboard.content.latest_post')}}</p>
                     </div>
                     <div class="icon">
                         <i class="far fa-clock"></i>
                     </div>
-                    <a href="{{url('post')}}" class="small-box-footer">{{__('dashboard.content.more info')}} <i
+                    <a href="{{route('posts.edit', Falsifying::falsify($late_post->id))}}" class="small-box-footer">{{__('dashboard.content.more info')}} <i
                             class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
@@ -92,14 +92,14 @@
             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="small-box bg-fuchsia">
                     <div class="inner">
-                        <h3>Sample Post 1</sup></h3>
+                        <h3>{{$late_category->title}}</sup></h3>
 
                         <p>{{__('cms::dashboard.content.latest_category')}}</p>
                     </div>
                     <div class="icon">
                         <i class="fas fa-clock"></i>
                     </div>
-                    <a href="{{url('post')}}" class="small-box-footer">{{__('dashboard.content.more info')}} <i
+                    <a href="{{route('categories.edit', Falsifying::falsify($late_category->id))}}" class="small-box-footer">{{__('dashboard.content.more info')}} <i
                             class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>

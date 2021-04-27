@@ -41,6 +41,7 @@ class PostsController extends Controller
      */
     public function index()
     {
+        /* Check Post Page */
         $post = true;
         return view('cms::posts.index')->with([
             'post_page' => $post
@@ -60,6 +61,7 @@ class PostsController extends Controller
             ->addColumn('posts', function (Post $posts) {
                 return $posts;
             })
+            /* Relationship with category */
             ->addColumn('categories', function (Post $posts) {
                 $item = $posts->categories->map(function ($items) {
                     return $items->title;
@@ -80,8 +82,10 @@ class PostsController extends Controller
      */
     public function create()
     {
+        /* Check create section */
         $create = true;
 
+        /* Get category for display at multiselect */
         $this->data['title'] = Category::all();
         $list_categories = $this->data['title'];
 
@@ -102,7 +106,7 @@ class PostsController extends Controller
         $request->validated();
         $input = $request->all();
 
-        /* Image Processing */
+        /* Image Processing : Get name an store image to public*/
         if ($request->hasFile('image')) {
             $names = $request->file('image')->getClientOriginalName();
             $request->file('image')->move(public_path() . '/assets/Image/Upload/', $names);
@@ -166,7 +170,7 @@ class PostsController extends Controller
             $category[] = $value->id;
         }
 
-        /* Get List Categories */
+        /* Get category for display at multiselect */
         $this->data['title'] = Category::all();
         $list_categories = $this->data['title'];
 
@@ -205,7 +209,7 @@ class PostsController extends Controller
         DB::beginTransaction();
         try {
 
-            /* Update no relationship */
+            /* Update without relationship */
             $post = Post::find($id);
             $post->title = $input['title'];
             $post->content = $input['content'];

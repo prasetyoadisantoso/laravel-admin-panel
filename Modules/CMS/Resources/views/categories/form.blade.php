@@ -46,7 +46,7 @@
             </div>
             <div class="card-body">
 
-                {{-- Form --}}
+                {{-- Create or Edit Form --}}
                 @if (isset($create_section))
                 <form action="{{route('categories.store')}}" method="POST">
                 @elseif (isset($edit_section))
@@ -59,7 +59,7 @@
 
                 @csrf
 
-                {{-- Title --}}
+                {{-- Create or Edit Title --}}
                 <div class="form-group">
                     @if (isset($create_section))
                     <label for="">{{__('cms::category.form.title')}}</label><br>
@@ -72,7 +72,7 @@
                     @endif
                 </div>
 
-                {{-- Description --}}
+                {{-- Create or Edit Description --}}
                 <div class="form-group">
                     @if (isset($create_section))
                     <label for="">{{__('cms::category.form.description')}}</label><br>

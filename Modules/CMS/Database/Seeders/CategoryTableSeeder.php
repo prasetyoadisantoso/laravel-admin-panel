@@ -24,7 +24,8 @@ class CategoryTableSeeder extends Seeder
             [
                 'id' => '12bff68f-a90a-a1a5-a180-be492c139921',
                 'title' => 'Uncategorized',
-                'description' => 'Uncategorized',
+                'description' => 'Ut ratione libero ullam quaerat ut ea omnis magnam.',
+                'created_at' => date("Y-m-d H:i:s"),
             ],
 
             /* Second Post */
@@ -32,6 +33,7 @@ class CategoryTableSeeder extends Seeder
                 'id' => 'a2cff68l-190a-11a2-1180-fe492c519923',
                 'title' => 'Category 1',
                 'description' => 'Rerum dolorum odio non distinctio velit aut eaque ad.',
+                'created_at' => date("Y-m-d H:i:s"),
             ],
 
         ]);

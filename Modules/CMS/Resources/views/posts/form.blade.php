@@ -94,9 +94,9 @@
 
                         {{-- Left Side --}}
                         <div class="col-md-6"4>
-
                             <div class="container mx-2">
-                                {{-- Title --}}
+
+                                {{-- Create or Edit Title --}}
                                 <div class="form-group">
                                     @if (isset($create_section))
                                         <label for="">{{__('cms::post.form.title_create')}}</label>
@@ -110,7 +110,7 @@
 
                                 @csrf
 
-                                {{-- Categories List --}}
+                                {{--Create or Edit Categories List --}}
                                 <div class="form-group">
                                     <label for="">{{__('cms::post.form.categories')}}</label><br>
                                     <select multiple class="form-control selectpicker"
@@ -131,15 +131,15 @@
 
                                     </select>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
 
                         {{-- Right Side --}}
                         <div class="col-md-6">
                             <div class="container mx-5">
 
-                                {{-- Feature Image --}}
+                                {{--Create or Edit Feature Image --}}
                                 <div class="form-group">
                                     <label for="">{{__('cms::post.form.feature_image')}}</label><br>
                                     <div class="dropzones w-50">
@@ -157,6 +157,7 @@
 
                             </div>
                         </div>
+
                     </div>
 
 

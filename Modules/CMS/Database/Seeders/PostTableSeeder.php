@@ -26,6 +26,7 @@ class PostTableSeeder extends Seeder
                 'image' => null,
                 'title' => 'My First Title',
                 'content' => 'Ut expedita aliquid voluptatem ut. Error consectetur iste voluptatem tempore.',
+                'created_at' => date("Y-m-d H:i:s"),
             ],
 
             /* Second Post */
@@ -34,6 +35,7 @@ class PostTableSeeder extends Seeder
                 'image' => null,
                 'title' => 'My Second Title',
                 'content' => 'Aliquam culpa perspiciatis earum fugit ratione et esse. Corrupti delectus est similique fugiat temporibus.',
+                'created_at' => date("Y-m-d H:i:s"),
             ],
 
 

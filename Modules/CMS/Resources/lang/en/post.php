@@ -4,6 +4,7 @@ return [
     'breadcrumb' => [
         'title' => 'Posts',
         'home' => 'Home',
+        'cms' => 'CMS',
         'administrator' => 'Posts Dashboard',
         'create' => 'Create a Post',
         'edit' => 'Edit Post',

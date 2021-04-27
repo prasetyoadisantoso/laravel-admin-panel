@@ -13,7 +13,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a
-                            href="{{route('posts.index')}}">{{__('cms::post.breadcrumb.home')}}</a>
+                            href="{{route('cms.index')}}">{{__('cms::post.breadcrumb.cms')}}</a>
                     </li>
                     <li class="breadcrumb-item active">{{__('cms::post.breadcrumb.administrator')}}</li>
                 </ol>
@@ -123,8 +123,6 @@
 </script>
 
 <script alt="SweetAlert">
-    /* SweetAlert */
-
     /* Delete User */
     $(document).on('click', '#delete', function(e){
             e.preventDefault();

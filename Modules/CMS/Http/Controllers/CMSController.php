@@ -6,6 +6,8 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Repositories\GlobalFunction;
+use Modules\CMS\Entities\Post;
+use Modules\CMS\Entities\Category;
 
 class CMSController extends Controller
 {
@@ -34,7 +36,26 @@ class CMSController extends Controller
      */
     public function index()
     {
-        return view('cms::index');
+        /* Total Posts */
+        $post = Post::all();
+        $total_post = count($post);
+
+        /* Total Category */
+        $category = Category::all();
+        $total_category = count($category);
+
+        /* Latest Post */
+        $late_post = Post::orderBy('created_at', 'desc')->first();
+
+        /* Latest Category */
+        $late_category = Category::orderBy('created_at', 'desc')->first();
+
+        return view('cms::index')->with([
+            'total_post' => $total_post,
+            'total_category' => $total_category,
+            'late_post' => $late_post,
+            'late_category' => $late_category,
+        ]);
     }
 
     /**

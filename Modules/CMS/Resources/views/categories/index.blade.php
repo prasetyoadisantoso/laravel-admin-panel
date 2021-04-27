@@ -13,7 +13,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a
-                            href="{{route('categories.index')}}">{{__('cms::category.breadcrumb.home')}}</a>
+                            href="{{route('cms.index')}}">{{__('cms::category.breadcrumb.cms')}}</a>
                     </li>
                     <li class="breadcrumb-item active">{{__('cms::category.breadcrumb.administrator')}}</li>
                 </ol>
@@ -32,7 +32,7 @@
         <div class="jumbotron bg-transparent pt-0 pb-0">
             <div class="row">
 
-                {{-- Create and Description --}}
+                {{-- Create Button and Description --}}
                 <div class="col-sm-12 col-md-6">
                     <div class="card bg-transparent border-0 shadow-none py-5 text-center">
                         <h1 class="display-5 font-weight-bold">{{__('cms::category.jumbotron.title')}}</h1>
