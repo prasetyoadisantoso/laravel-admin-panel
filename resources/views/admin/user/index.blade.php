@@ -163,7 +163,13 @@
             columns: [
             { data: 'DT_RowIndex', name: 'DT_RowIndex'},
             { data: 'name' },
-            { data: 'image', className: "w-25", render: function (data, type, full, meta) { return '<img class="img-fluid w-50" src="' + data + '">'}},
+            { data: 'image', className: "w-25", render: function (data, type, full, meta) {
+                if(data === '/storage/'){
+                    return 'Image not available';
+                } else {
+                    return '<img class="img-fluid w-50" src="' + data + '">'
+                }
+            }},
             { data: 'email'},
             { data: 'roles'},
             { data: 'action', name: 'action', orderable: false, searchable: false },
@@ -254,7 +260,13 @@
             cache: false,
             success : function (data) {
                 $("#modal-user").modal('show');
-                $("#image").attr("src", "{{asset('assets/Image/User')}}"+"/"+data[0].image);
+                $("#image").attr("src", function() {
+                    if(data[0].image == ""){
+                        console.clear();
+                    } else {
+                        return "{{config('app.url') . '/storage/'}}" + data[0].image
+                    }
+                });
                 $('#full-name').html(data[0].name);
                 $('#email').html(data[0].email);
                 $('#role').html(data[1]);

@@ -3,7 +3,7 @@
 
     {{-- Brand Logo --}}
     <a href="#" class="brand-link">
-        <img src="{{asset('assets/Image/Brand') . '/' . $site_logo}}" alt="AdminLTE Logo"
+        <img src="{{Storage::url($site_logo)}}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light text-wrap">Admin Panel</span>
     </a>
