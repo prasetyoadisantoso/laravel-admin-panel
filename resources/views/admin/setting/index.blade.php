@@ -270,7 +270,7 @@
             cache: false,
             success : function (data) {
                 $("#modal-setting-logo").modal('show');
-                $("#image").attr("src", "{{asset('assets/Image/Brand')}}"+"/"+data.value);
+                $("#image").attr("src", "{{config('app.url') . '/storage/'}}" + data.value);
                 $('#id-logo').val(data.id);
                 $('#name').html(data.name);
                 // $('#image').val(data.value);
