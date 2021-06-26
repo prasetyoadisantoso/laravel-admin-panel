@@ -303,8 +303,15 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        /* Get data from User */
+        $user = User::find(Falsifying::truthy($id));
+        Storage::delete('/public' . '/' . $user->image);
+
         /* Delete an User */
         $delete = User::where('id', Falsifying::truthy($id))->delete();
+
+        /* Check file and delete */
+
         // check data deleted or not
         if ($delete == 1) {
             $success = true;
