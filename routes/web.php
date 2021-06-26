@@ -3,11 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+/* Client */
+use App\Http\Controllers\Client\HomeController;
+
+/* Administrator */
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LegalController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
+
 
 
 /*
@@ -25,6 +30,19 @@ use App\Http\Controllers\Admin\RoleController;
 Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
     /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+
+    /* -------------------------------------------------------------------------- */
+    /*                                 Client Page                                */
+    /* -------------------------------------------------------------------------- */
+
+    /* Home Page */
+    Route::get('/', [HomeController::class, 'HomePage'])->name('home');
+
+
+
+    /* -------------------------------------------------------------------------- */
+    /*                             Administrator Page                             */
+    /* -------------------------------------------------------------------------- */
 
     /**
      * Authentication First Gateway
@@ -49,10 +67,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::get('legal/{type}', [LegalController::class, 'getType'])->name('legal');
     Route::post('legal', [LegalController::class, 'saveType'])->name('legal.update');
 
+
     /* Logout */
     Route::get('logout', function () {
         Auth::logout();
-        return redirect()->route('dashboard');
+        return redirect()->route('home');
     });
-
 });
