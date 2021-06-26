@@ -57,7 +57,7 @@
         {{-- User Profile --}}
         <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                <img src="{{asset('assets/Image/User') . '/' . $user->image}}"
+                <img src="{{Storage::url($user->image)}}"
                     class="user-image img-circle elevation-2" alt="User Image">
                 <span class="d-none d-md-inline">{{$user->name}}</span>
             </a>
@@ -65,7 +65,7 @@
 
                 {{-- User Information --}}
                 <li class="user-header bg-primary">
-                    <img src="{{asset('assets/Image/User') . '/' . $user->image}}"
+                    <img src="{{Storage::url($user->image)}}"
                         class="user-image img-circle elevation-2" alt="User Image">
                     <p>
                         {{$user->name}}

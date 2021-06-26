@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use App\Repositories\GlobalFunction;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -34,7 +35,6 @@ class UserController extends Controller
 
         /* Global Function */
         GlobalFunction::global();
-
     }
 
     /**
@@ -61,7 +61,7 @@ class UserController extends Controller
         $users = User::all();
         $result = Datatables::of($users)
             ->addColumn('image', function (User $user) {
-                return asset('assets/Image/User' . '/' . $user->image);
+                return Storage::url($user->image);
             })
             ->addColumn('roles', function (User $user) {
                 return $user->getRoleNames()->map(function ($item) {
@@ -69,7 +69,7 @@ class UserController extends Controller
                 })->implode('<br>');
             })
             ->addColumn('action', function ($user) {
-                return '<button type="button" class="btn btn-md btn-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' . __('user.datatable.action') . '<i class="fas fa-cog ml-2"></i></button> <div class="dropdown-menu dropdown-menu-right"> <button class="dropdown-item text-success show-user" href="/user/' . Falsifying::falsify($user->id) . '" id="modal"><i class="far fa-eye mr-3"></i>' . __('user.datatable.show') . '</button> <a class="dropdown-item text-primary" href="' . route('user.edit', Falsifying::falsify($user->id)) . '"><i class="fas fa-pen-square mr-3"></i>' . __('user.datatable.edit') . '</a> <a class="dropdown-item text-red" href="'. route('user.destroy', Falsifying::falsify($user->id)) .'" id="delete"><i class="fas fa-trash mr-3"></i>' . __('user.datatable.delete') . '</a></div>';
+                return '<button type="button" class="btn btn-md btn-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' . __('user.datatable.action') . '<i class="fas fa-cog ml-2"></i></button> <div class="dropdown-menu dropdown-menu-right"> <button class="dropdown-item text-success show-user" href="/user/' . Falsifying::falsify($user->id) . '" id="modal"><i class="far fa-eye mr-3"></i>' . __('user.datatable.show') . '</button> <a class="dropdown-item text-primary" href="' . route('user.edit', Falsifying::falsify($user->id)) . '"><i class="fas fa-pen-square mr-3"></i>' . __('user.datatable.edit') . '</a> <a class="dropdown-item text-red" href="' . route('user.destroy', Falsifying::falsify($user->id)) . '" id="delete"><i class="fas fa-trash mr-3"></i>' . __('user.datatable.delete') . '</a></div>';
             })
             ->removeColumn('id')->addIndexColumn()->make('true');
 
@@ -105,7 +105,6 @@ class UserController extends Controller
      */
     public function store(UserFormRequest $request)
     {
-
         /* Validating Request */
         $request->validated();
         $input = $request->all();
@@ -113,8 +112,9 @@ class UserController extends Controller
         /* Image Processing */
         if ($request->hasFile('image')) {
             $names = $request->file('image')->getClientOriginalName();
-            $request->file('image')->move(public_path() . '/assets/Admin/Image/', $names);
-            $input['image'] = $names;
+            $imagePath = 'assets/Image/User/';
+            Storage::putFileAs('public/' . $imagePath, $request->file('image'), $names);
+            $input['image'] = $imagePath . $names;
         }
 
         /* Checkbox Status */
@@ -126,6 +126,11 @@ class UserController extends Controller
 
         /* Hashing Password */
         $input['password'] = Hash::make($input['password']);
+
+        /* Check if image not available */
+        if (!isset($input['image'])) {
+            $input['image'] = '';
+        }
 
         /* Store Transaction */
         DB::beginTransaction();
@@ -236,12 +241,6 @@ class UserController extends Controller
         /* Validating Request */
         $request->validated();
         $input = $request->all();
-        /* Image Processing */
-        if ($request->hasFile('image')) {
-            $names = $request->file('image')->getClientOriginalName();
-            $request->file('image')->move(public_path() . '/assets/Admin/Image/', $names);
-            $input['image'] = $names;
-        }
 
         /* Request Checkbox Status */
         if ($request->status == 'on') {
@@ -260,7 +259,22 @@ class UserController extends Controller
         /* Store Transaction */
         DB::beginTransaction();
         try {
+
+            /* Get data from User */
             $user = User::find($id);
+
+            /* Check file and delete */
+            $imagePath = 'assets/Image/User/';
+            Storage::delete('/public' . '/' . $user->image);
+
+            /* Image Processing */
+            if ($request->hasFile('image')) {
+                $names = $request->file('image')->getClientOriginalName();
+                Storage::putFileAs('public/' . $imagePath, $request->file('image'), $names);
+                $input['image'] = $imagePath . $names;
+            }
+
+            /* Update data to User */
             $user->update($input);
             DB::table('model_has_roles')->where('model_id', $id)->delete();
             $user->assignRole($request->input('roles'));
@@ -289,8 +303,15 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        /* Get data from User */
+        $user = User::find(Falsifying::truthy($id));
+        Storage::delete('/public' . '/' . $user->image);
+
         /* Delete an User */
         $delete = User::where('id', Falsifying::truthy($id))->delete();
+
+        /* Check file and delete */
+
         // check data deleted or not
         if ($delete == 1) {
             $success = true;

@@ -24,7 +24,6 @@ class UserFormRequest extends FormRequest
      */
     public function rules()
     {
-
         $id = $this->route('user');
 
         if ($this->method() == 'PUT' || $this->method() == 'PATCH') {

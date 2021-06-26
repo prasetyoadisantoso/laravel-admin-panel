@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Repositories\GlobalFunction;
 use DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller
 {
@@ -86,9 +87,12 @@ class SettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $settings = Setting::find($id);
         $input = $request->all();
+
+        /* Check file and delete */
+        $imagePath = 'assets/Image/Brand/';
+        Storage::delete('/public' . '/' . $settings->value);
 
         /* Store / Update Transaction */
         DB::beginTransaction();
@@ -100,8 +104,8 @@ class SettingController extends Controller
             } else {
                 if ($request->hasFile('image')) {
                     $names = $request->file('image')->getClientOriginalName();
-                    $request->file('image')->move(public_path() . '/assets/Image/Brand/', $names);
-                    $input['image'] = $names;
+                    Storage::putFileAs('public/' . $imagePath, $request->file('image'), $names);
+                    $input['image'] = $imagePath . $names;
                     $settings->value = $input['image'];
                 }
                 $settings->save();

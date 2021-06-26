@@ -42,14 +42,14 @@
 
     <div class="container-fluid">
 
-        @if (isset($create_section))
-        <form action="{{route('user.store')}}" method="POST" enctype="multipart/form-data">
+            @if (isset($create_section))
+                <form action="{{route('user.store')}}" method="POST" enctype="multipart/form-data">
             @endif
 
             @if (isset($edit_section))
-            <form action="{{route('user.update', $id)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('user.update', $id)}}" method="POST" enctype="multipart/form-data">
                 @method('PATCH')
-                @endif
+            @endif
 
                 @csrf
                 <div class="row">
@@ -72,13 +72,13 @@
                                     @if (isset($edit_section))
 
                                     @if ($image != null)
-                                    <img class="img-fluid img-circle" src="{{asset('assets/Image/User/' . $image)}}"
+                                    <img class="img-fluid img-circle" src="{{Storage::url($image)}}"
                                         alt="User profile picture" id="profileImage" style="width: 128px;">
                                     @endif
 
-                                    @if ($image == null)
+                                    @if ($image == '')
                                     <img class="img-fluid img-circle"
-                                        src="{{asset('assets/admin/dist/img/avatar2.png')}}" alt="User profile picture"
+                                        src="{{asset('assets/Admin/AdminLTE/dist/img/avatar.png')}}" alt="User profile picture"
                                         id="profileImage" style="width: 128px;">
                                     @endif
 

@@ -22,13 +22,13 @@ class SettingSeeder extends Seeder
             [
                 'id' => '1',
                 'name' => 'Site Logo',
-                'value' => 'laravel-logo.png'
+                'value' => 'assets/Image/Brand/laravel-logo.png'
             ],
 
             [
                 'id' => '2',
                 'name' => 'Site Favicon',
-                'value' => 'laravel-logo.png'
+                'value' => 'assets/Image/Brand/laravel-logo.png'
             ],
 
             [
