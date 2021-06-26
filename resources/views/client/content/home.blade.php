@@ -16,19 +16,21 @@
                 <ul class="list-unstyled">
                     <li>
                         <blockquote class="blockquote">
-                            <p class="mb-0"><span class="font-weight-bold">{{$language->MainContent->Content->Title}} : </span>{{$global->SiteName}}</p>
-                            <footer class="blockquote-footer">{{$language->MainContent->Content->Description}} : {{$global->SiteDescription}}</footer>
+                            <p class="mb-0"><span class="font-weight-bold">{{$language->ContentSection->Content['title']}} : </span>{{$site_name}}</p>
+                            <footer class="blockquote-footer">{{$language->ContentSection->Content['description']}} : {{$site_description}}</footer>
                         </blockquote>
                     </li>
                     <li>
                         <blockquote class="blockquote">
-                            <p class="mb-0"><span class="font-weight-bold">{{$language->MainContent->Content->Title}} : </span>{{$global->SiteName}}</p>
-                            <footer class="blockquote-footer">{{$language->MainContent->Content->Description}} : {{$global->SiteDescription}}</footer>
+                            <p class="mb-0"><span class="font-weight-bold">Social</span></p>
+                            <footer class="blockquote-footer">{!!$social_facebook!!}</footer>
+                            <footer class="blockquote-footer">{!!$social_instagram!!}</footer>
                         </blockquote>
                     </li>
                 </ul>
             </div>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            <br>
+            <a class="btn btn-danger btn-lg" href="{{route('disclaimer')}}" role="button">Disclaimer <i class="bi bi-patch-exclamation ml-2"></i></a>
         </div>
     </div>
 

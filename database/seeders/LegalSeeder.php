@@ -21,19 +21,19 @@ class LegalSeeder extends Seeder
             [
                 'id' => 1,
                 'type' => 'privacy-policy',
-                'description' => 'Content privacy policy'
+                'description' => '<h1>Privacy Policy Title</h1><p>This is Privacy & Policy</p>'
             ],
 
             [
                 'id' => 2,
                 'type' => 'terms-conditions',
-                'description' => 'Content terms & conditions'
+                'description' => '<h1>Terms & Conditions Title</h1><p>This is Terms & Conditions</p>'
             ],
 
             [
                 'id' => 3,
                 'type' => 'disclaimer',
-                'description' => 'Content disclaimer'
+                'description' => '<h1>Disclaimer Title</h1><p>This is Disclaimer</p>'
             ],
 
         ]);

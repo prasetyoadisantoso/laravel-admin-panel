@@ -40,7 +40,7 @@ class SettingSeeder extends Seeder
             [
                 'id' => '4',
                 'name' => 'Site Description',
-                'value' => 'Administrator panel made by vanilla Laravel & AdminLTE. Fell free to using this panel.'
+                'value' => 'Administrator panel made with vanilla Laravel & AdminLTE. Fell free to using this panel.'
             ],
 
             [
@@ -82,13 +82,13 @@ class SettingSeeder extends Seeder
             [
                 'id' => '11',
                 'name' => 'Social Facebook',
-                'value' => 'https://facebook.com/laravel-admin'
+                'value' => '<i class="bi bi-facebook"></i> https://facebook.com/laravel-admin'
             ],
 
             [
                 'id' => '12',
                 'name' => 'Social Instagram',
-                'value' => 'https://instagram.com/laravel-admin'
+                'value' => '<i class="bi bi-instagram"></i> https://instagram.com/laravel-admin'
             ],
 
             [
@@ -105,13 +105,13 @@ class SettingSeeder extends Seeder
             [
                 'id' => '14',
                 'name' => 'FAQ',
-                'value' => ''
+                'value' => '<h1>FAQ Title</h1><p>This is Faq Description</p>'
             ],
 
             [
                 'id' => '15',
                 'name' => 'About Us',
-                'value' => ''
+                'value' => '<h1>About Us Title</h1><p>This is About Us Description</p>'
             ],
 
             [

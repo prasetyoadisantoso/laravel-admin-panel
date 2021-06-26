@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Repositories\Client;
+namespace App\Repositories;
 
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Illuminate\Support\Facades\Route;
 use App\Models\Setting;
+use App\Models\Legal;
 
 
 class ClientGlobalFunction{
@@ -46,11 +47,48 @@ class ClientGlobalFunction{
         return view()->share('favicon', Setting::where('id', 2)->pluck('value')->first());
     }
 
+    /* Social Facebook */
+    public function SocialFacebook()
+    {
+        return view()->share('social_facebook', Setting::where('id', 11)->pluck('value')->first());
+    }
+
+    /* Social Instagram */
+    public function SocialInstagram()
+    {
+        return view()->share('social_instagram', Setting::where('id', 12)->pluck('value')->first());
+    }
+
     /* Site Copyright */
     public function SiteCopyright()
     {
-        return view()->share('copyright', Setting::where('id', 13)->pluck('value')->first());
+        return view()->share('site_copyright', Setting::where('id', 13)->pluck('value')->first());
     }
+
+    /* Site FAQ */
+    public function SiteFaq()
+    {
+        return view()->share('site_faq', Setting::where('id', 14)->pluck('value')->first());
+    }
+
+    /* Site Terms */
+    public function SiteTerms()
+    {
+        return view()->share('site_terms', Legal::where('id', 2)->pluck('description')->first());
+    }
+
+    /* Privacy Policy */
+    public function SitePrivacy()
+    {
+        return view()->share('site_privacy', Legal::where('id', 1)->pluck('description')->first());
+    }
+
+    /* Disclaimer */
+    public function SiteDisclaimer()
+    {
+        return view()->share('site_disclaimer', Legal::where('id', 3)->pluck('description')->first());
+    }
+
 
     /* -------------------------------------------------------------------------- */
     /*                             Return All Function                            */
@@ -66,6 +104,13 @@ class ClientGlobalFunction{
             'SiteLogo' => $value->SiteLogo(),
             'SiteFavicon' => $value->SiteFavicon(),
             'SiteCopyright' => $value->SiteCopyright(),
+            'SocialFacebook' => $value->SocialFacebook(),
+            'SocialInstagram' => $value->SocialInstagram(),
+            'SiteCopyright' => $value->SiteCopyright(),
+            'SiteFaq' => $value->SiteFaq(),
+            'SiteTerms' => $value->SiteTerms(),
+            'SitePrivacy' => $value->SitePrivacy(),
+            'SiteDisclaimer' => $value->SiteDisclaimer(),
         ];
         return $array;
     }

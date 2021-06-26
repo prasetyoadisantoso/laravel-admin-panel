@@ -38,6 +38,19 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     /* Home Page */
     Route::get('/', [HomeController::class, 'HomePage'])->name('home');
 
+    /* Faq Page */
+    Route::get('faq', [HomeController::class, 'FaqPage'])->name('faq');
+
+    /* Privacy & Policy Page */
+    Route::get('privacy-policy', [HomeController::class, 'PrivacyPage'])->name('privacy-policy');
+
+    /* Terms & Conditions Page */
+    Route::get('terms-conditions', [HomeController::class, 'TermsPage'])->name('terms-conditions');
+
+    /* Disclaimer Page */
+    Route::get('disclaimer', [HomeController::class, 'DisclaimerPage'])->name('disclaimer');
+
+
 
 
     /* -------------------------------------------------------------------------- */

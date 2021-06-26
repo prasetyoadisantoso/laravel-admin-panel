@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     {{-- Favicon --}}
-    <link rel="icon" href="{{asset('assets/Image/Brand') . '/' . $favicon}}">
+    <link rel="icon" href="{{Storage::url($favicon)}}">
 
     {{-- Title --}}
     <title>{{$global->SiteName}} | {{isset($global->RouteName) ?  ucfirst(strtok($global->RouteName, '.')) : ''}}

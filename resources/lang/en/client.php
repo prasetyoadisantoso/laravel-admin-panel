@@ -8,7 +8,10 @@ return [
             'terms_conditions' => 'Terms & Conditions',
             'login' => 'Login',
             'logout' => 'Logout',
-            'register' => 'Register'
+            'register' => 'Register',
+            'faq' => 'FAQ',
+            'privacy' => 'Privacy & Policy',
+            'disclaimer' => 'Disclaimer',
         ],
 
         'content' => [
@@ -18,7 +21,11 @@ return [
         ],
 
         'footer' => [
+            'copyright' => ''
+        ],
 
+        'additional' => [
+            'social'
         ]
     ]
 ];

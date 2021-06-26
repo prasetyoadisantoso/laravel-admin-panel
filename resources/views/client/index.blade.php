@@ -10,6 +10,9 @@
     {{-- Home Content --}}
     @yield('home')
 
+    {{-- Page Content --}}
+    @yield('page')
+
 </main>
 
 {{-- Footer --}}
