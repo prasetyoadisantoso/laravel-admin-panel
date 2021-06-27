@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Repositories\GlobalFunction;
 use App\Models\Legal;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class LegalController extends Controller
 {
@@ -20,11 +21,9 @@ class LegalController extends Controller
     public function __construct()
     {
         /* Authentication */
-        $this->middleware(['auth', 'verified']);
-        $this->middleware('permission:role-home')->only(['index']);
-        $this->middleware('permission:user-create')->only(['create', 'store']);
-        $this->middleware('permission:user-edit')->only(['edit', 'update']);
-        $this->middleware('permission:user-delete')->only(['destroy']);
+        $this->middleware(['auth', 'verified', 'admin']);
+        $this->middleware('permission:legal-get', ['only' => 'getType']);
+        $this->middleware('permission:legal-save', ['only' => 'saveType']);
 
         /* Global Function */
         GlobalFunction::global();

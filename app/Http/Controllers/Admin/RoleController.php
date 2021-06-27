@@ -22,7 +22,7 @@ class RoleController extends Controller
     public function __construct()
     {
         /* Authentication */
-        $this->middleware(['auth', 'verified']);
+        $this->middleware(['auth', 'verified', 'admin']);
         $this->middleware('permission:role-home')->only(['index']);
         $this->middleware('permission:user-create')->only(['create', 'store']);
         $this->middleware('permission:user-edit')->only(['edit', 'update']);

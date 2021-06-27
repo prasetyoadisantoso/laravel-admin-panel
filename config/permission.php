@@ -144,6 +144,10 @@ return [
     /*  List of permission */
     'permission_list' => [
 
+        // Legal
+        'legal-get',
+        'legal-save',
+
         // Role
         'role-home',
         'role-show',
