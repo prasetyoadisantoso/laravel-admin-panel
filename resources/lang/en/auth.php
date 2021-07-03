@@ -45,7 +45,7 @@ return [
         'phone' => 'Phone... (+44 example)',
         'password' => 'Password...',
         'confirm_password' => 'Password...',
-        'agree' => 'I agree to the terms',
+        'agree' => 'I agree to the',
         'terms' => 'terms',
         'sign_up' => 'Sign Up',
         'or' => '- Or - ',

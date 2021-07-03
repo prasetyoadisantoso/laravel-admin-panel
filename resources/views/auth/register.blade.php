@@ -68,7 +68,7 @@
                         <div class="icheck-primary">
                             <input type="checkbox" id="agreeTerms" name="terms" value="agree">
                             <label for="agreeTerms">
-                                {{__('auth.register.agree')}} <a href="#">{{__('auth.register.terms')}}</a>
+                                {{__('auth.register.agree')}} <a href="#" data-toggle="modal" data-target="#termsModal">{{__('auth.register.terms')}}</a>
                             </label>
                         </div>
                     </div>
@@ -78,6 +78,14 @@
                 </div>
 
             </form>
+
+            <div class="modal fade " tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="termsModal">
+                <div class="modal-dialog modal-md">
+                  <div class="modal-content">
+                    Ini Modal
+                  </div>
+                </div>
+            </div>
 
             <a href="{{route('login')}}" class="text-center">{{__('auth.register.membership')}}</a>
 
