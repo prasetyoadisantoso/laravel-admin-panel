@@ -135,7 +135,33 @@
                     <div class="tab-pane fade" id="custom-content-above-seo" role="tabpanel"
                         aria-labelledby="custom-content-above-profile-tab">
                         <br>
-                        <h1 class="my-3">Coming Soon</h1>
+                        <table id="setting" class="table table-striped w-100">
+                            <thead>
+                                <tr>
+                                    <th class="w-25">{{__('setting.content.table.setting')}}</th>
+                                    <th class="w-50">{{__('setting.content.table.value')}}</th>
+                                    <th class="w-25">{{__('setting.content.table.action')}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($seo_tab as $item)
+                                    <td>{{__('setting.list')[$item->id]}}</td>
+                                    <td>{{$item->value}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-md btn-default"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {{__('setting.content.action.action')}} <i
+                                                class="fas fa-cog ml-2"></i></button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <button class="dropdown-item text-primary"
+                                                href="{{url('setting/'. $item->id . '/edit')}}" id="modal-general"><i
+                                                    class="fas fa-pen-square mr-3"></i>{{__('setting.content.action.edit')}}</button>
+                                        </div>
+                                    </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
 
 

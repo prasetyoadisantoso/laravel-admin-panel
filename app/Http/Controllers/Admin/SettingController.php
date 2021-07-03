@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Setting;
 use Illuminate\Http\Request;
-use App\Repositories\GlobalFunction;
+use App\Repositories\AdminGlobalFunction;
 use DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -28,7 +28,7 @@ class SettingController extends Controller
         $this->middleware('permission:user-delete')->only(['destroy']);
 
         /* Global Function */
-        GlobalFunction::global();
+        AdminGlobalFunction::global();
     }
 
     /**
@@ -47,12 +47,16 @@ class SettingController extends Controller
         $general_tab = Setting::where('id', '>', 2)->take(10)->get();
 
         /* Get database additional Tab */
-        $additional_tab = Setting::orderBy('id', 'DESC')->take(4)->get()->reverse();
+        $additional_tab = Setting::where('id', '>=', 13)->where('id', '<=', 16)->get();
+
+        /* Get database SEO Tab */
+        $seo_tab = Setting::orderBy('id', 'DESC')->take(2)->get()->reverse();
 
         return view('admin.setting.index')->with([
             'logo_tab' => $logo_tab,
             'general_tab' => $general_tab,
             'additional_tab' => $additional_tab,
+            'seo_tab' => $seo_tab,
             'setting_page' => $setting
         ]);
     }
@@ -87,6 +91,10 @@ class SettingController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg|max:2048'
+        ]);
+
         $settings = Setting::find($id);
         $input = $request->all();
 
@@ -116,6 +124,7 @@ class SettingController extends Controller
 
             /* Send error message to storage/logs/error.txt */
             $error_message = $th->getMessage();
+            $this->LogMail($error_message);
             File::put(storage_path('logs/error.txt'), $error_message);
 
             return redirect()->back()->with('error', $error_message);

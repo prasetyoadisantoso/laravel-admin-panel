@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\GlobalCounter;
-use App\Repositories\GlobalFunction;
+use App\Repositories\AdminGlobalCounter;
+use App\Repositories\AdminGlobalFunction;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -23,10 +23,10 @@ class DashboardController extends Controller
         $this->middleware('permission:user-delete')->only(['destroy']);
 
         /* Global Function */
-        GlobalFunction::global();
+        AdminGlobalFunction::global();
 
         /* Global Counter */
-        GlobalCounter::global();
+        AdminGlobalCounter::global();
     }
 
     /**

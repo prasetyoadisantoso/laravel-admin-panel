@@ -62,7 +62,10 @@ return [
         13 => 'Copyright',
         14 => 'FAQ',
         15 => 'About Us',
-        16 => 'Cookies Concern'
+        16 => 'Cookies Concern',
+        17 => 'Meta Description',
+        18 => 'Google Site Verification',
+
 
     ],
 ];
