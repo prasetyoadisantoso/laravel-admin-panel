@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    {{-- SEO Tag --}}
+    <meta name="description" CONTENT="{{$global->MetaDescription}}">
+    <meta name="google-site-verification" content="{{$global->MetaGoogleSiteVerification}}"/>
+    <meta name="robots" content="noindex,nofollow">
+
     {{-- Favicon --}}
     <link rel="icon" href="{{Storage::url($favicon)}}">
 

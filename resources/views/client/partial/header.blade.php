@@ -1,7 +1,8 @@
-{{-- {{dd($language)}} --}}
-<!-- Header -->
+{{-- Header --}}
 <header class="fixed-top bg-dark">
     <nav class="navbar navbar-expand-lg navbar-dark">
+
+        {{-- Logo --}}
         <img src="{{Storage::url($site_logo)}}" alt="" class="img-fluid py-2" style="width: 50px;">
         <h1 class="my-2 text-white"> &nbsp; + &nbsp; </h1>
         <img src="{{asset('assets/Image/Brand/adminlte-logo.png')}}" alt="" class="img-fluid py-2" style="width: 50px;">
@@ -10,6 +11,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        {{-- Menu --}}
         <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active mx-2">
@@ -43,6 +45,7 @@
             </ul>
         </div>
     </nav>
+
 </header>
 
 

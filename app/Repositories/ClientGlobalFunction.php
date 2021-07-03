@@ -22,6 +22,17 @@ class ClientGlobalFunction{
         return view()->share('site_description', Setting::where('id', 4)->pluck('value')->first());
     }
 
+    /* SEO Description */
+    public function MetaDescription()
+    {
+        return view()->share('meta_description', Setting::where('id', 17)->pluck('value')->first());
+    }
+
+    /* SEO Google Site Verification */
+    public function MetaGoogleSiteVerification()
+    {
+        return view()->share('google_site_description', Setting::where('id', 18)->pluck('value')->first());
+    }
 
     /* Current Locale */
     public function CurrentLocale()
@@ -99,6 +110,8 @@ class ClientGlobalFunction{
         $array = (object)[
             'SiteName' => $value->SiteName(),
             'SiteDescription' => $value->SiteDescription(),
+            'MetaDescription' => $value->MetaDescription(),
+            'MetaGoogleSiteVerification' => $value->MetaGoogleSiteVerification(),
             'CurrentLocale' => $value->CurrentLocale(),
             'RouteName' => $value->RouteName(),
             'SiteLogo' => $value->SiteLogo(),
