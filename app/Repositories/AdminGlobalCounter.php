@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 
-class GlobalCounter
+class AdminGlobalCounter
 
 {
 
@@ -17,7 +17,7 @@ class GlobalCounter
            *
            * @return counter module
            */
-          $counter = new GlobalCounter();
+          $counter = new AdminGlobalCounter();
 
           /* Module Total */
           view()->share('module_counter', $counter->moduleCounter());

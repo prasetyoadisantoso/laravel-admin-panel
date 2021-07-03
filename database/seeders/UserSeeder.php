@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
             [
                 'id' => '0c7c66496-32cf-476b-a5b4-d47d9723d9',
                 'name' => 'Super Admin',
-                'image' => 'assets/Image/User/image-1.jpg',
+                'image' => 'assets/Image/User/image-1.png',
                 'email' => 'superadmin@system.io',
                 'password' => Hash::make('123456'),
                 'email_verified_at' => date("Y-m-d H:i:s"),
@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
             [
                 'id' => '0c5c66496-32cf-476b-b5b4-d47d9723a9',
                 'name' => 'Regular Admin',
-                'image' => 'assets/Image/User/image-2.jpg',
+                'image' => 'assets/Image/User/image-2.png',
                 'email' => 'admin@system.io',
                 'password' => Hash::make('123456'),
                 'email_verified_at' => date("Y-m-d H:i:s"),

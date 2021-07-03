@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Carbon;
 use App\Models\Setting;
 
-class GlobalFunction
+class AdminGlobalFunction
 
 {
 
@@ -32,7 +32,7 @@ class GlobalFunction
          *
          * @return module
          */
-        $module = new GlobalFunction();
+        $module = new AdminGlobalFunction();
         if (!empty($module->module())) {
             view()->share('module', $module->module());
         } else {

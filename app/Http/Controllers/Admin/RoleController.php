@@ -7,7 +7,7 @@ use App\Http\Requests\RoleFormRequest;
 use Spatie\Permission\Models\Role;
 use Yajra\DataTables\Facades\DataTables;
 use App\Repositories\Falsifying;
-use App\Repositories\GlobalFunction;
+use App\Repositories\AdminGlobalFunction;
 use DB;
 use Spatie\Permission\Models\Permission;
 
@@ -28,7 +28,7 @@ class RoleController extends Controller
         $this->middleware('permission:user-edit')->only(['edit', 'update']);
         $this->middleware('permission:user-delete')->only(['destroy']);
 
-        GlobalFunction::global();
+        AdminGlobalFunction::global();
     }
 
     /**
@@ -104,6 +104,8 @@ class RoleController extends Controller
         } catch (\Throwable $th) {
             /* Error Message */
             DB::rollback();
+            $error_message = $th->getMessage();
+            $this->LogMail($error_message);
             return redirect()->back()->with('error', $th->getMessage());
         }
 
@@ -176,6 +178,8 @@ class RoleController extends Controller
         } catch (\Throwable $th) {
             /* Error Message */
             DB::rollback();
+            $error_message = $th->getMessage();
+            $this->LogMail($error_message);
             return redirect()->back()->with('error', $th->getMessage());
         }
 

@@ -117,9 +117,24 @@ class SettingSeeder extends Seeder
             [
                 'id' => '16',
                 'name' => 'Cookies Concern',
-                'value' => ''
+                'value' => 'This is Cookies Concern'
             ],
             /* End Additional Page */
+
+            /* SEO */
+            [
+                'id' => '17',
+                'name' => 'Meta Description',
+                'value' => 'Author: A.N. Author, Description: This is description for SEO, Category: Website Development'
+            ],
+            [
+                'id' => '18',
+                'name' => 'Google Site Verification',
+                'value' => '+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34='
+            ],
+            /* End SEO */
+
+
 
         ]);
     }

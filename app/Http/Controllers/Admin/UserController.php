@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
-use App\Repositories\GlobalFunction;
+use App\Repositories\AdminGlobalFunction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -34,7 +34,7 @@ class UserController extends Controller
         $this->middleware('permission:user-delete')->only(['destroy']);
 
         /* Global Function */
-        GlobalFunction::global();
+        AdminGlobalFunction::global();
     }
 
     /**
@@ -150,6 +150,7 @@ class UserController extends Controller
 
             /* Send error message to storage/logs/error.txt */
             $error_message = $th->getMessage();
+            $this->LogMail($error_message);
             File::put(storage_path('logs/error.txt'), $error_message);
 
             return redirect()->back()->with('error', $th->getMessage());
@@ -286,6 +287,7 @@ class UserController extends Controller
 
             /* Send error message to storage/logs/error.txt */
             $error_message = $th->getMessage();
+            $this->LogMail($error_message);
             File::put(storage_path('logs/error.txt'), $error_message);
 
             return redirect()->back()->with('error', $error_message);

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LegalFormRequest;
 use Illuminate\Http\Request;
-use App\Repositories\GlobalFunction;
+use App\Repositories\AdminGlobalFunction;
 use App\Models\Legal;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +26,7 @@ class LegalController extends Controller
         $this->middleware('permission:legal-save', ['only' => 'saveType']);
 
         /* Global Function */
-        GlobalFunction::global();
+        AdminGlobalFunction::global();
     }
 
     /**
@@ -71,11 +71,12 @@ class LegalController extends Controller
             );
 
             DB::commit();
-        } catch (\Exception $exception) {
+        } catch (\Throwable $th) {
             DB::rollback();
-
+            $error_message = $th->getMessage();
+            $this->LogMail($error_message);
             return redirect()->back()->with([
-                'error' => $exception->getMessage()
+                'error' => $th->getMessage()
             ])->withInput();
         }
 
