@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{__('auth.login.meta-title')}}</title>
+    <link rel="icon" href="{{Storage::url('assets/Image/Brand/laravel-logo.png')}}">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
