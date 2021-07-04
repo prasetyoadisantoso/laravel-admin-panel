@@ -60,7 +60,8 @@ return [
         'resend' => 'A fresh verification link has been sent to your email address.',
         'message' => 'We already send verification to your email.',
         're-resend' => 'click here to request another.',
-        'login' => 'Back to login page.'
+        'login' => 'Back to login page.',
+        'back_to_home' => 'Back to home page.',
     ],
 
     'forgot' => [

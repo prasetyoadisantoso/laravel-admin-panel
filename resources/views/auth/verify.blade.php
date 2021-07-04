@@ -29,7 +29,7 @@
                 </div>
             </div>
 
-            <p class="login-box-msg"><a href="{{route('login')}}" >{{__('auth.verify.login')}}</a></p>
+            <p class="login-box-msg"><a href="{{route('home')}}" >{{__('auth.verify.back_to_home')}}</a></p>
 
         </div>
         <!-- /.login-card-body -->
