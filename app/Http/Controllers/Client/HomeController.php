@@ -77,4 +77,16 @@ class HomeController extends Controller
             'disclaimer_page' => $SiteDisclaimer,
         ]);
     }
+
+    public function AboutUsPage()
+    {
+        $SiteAboutUs = true;
+        $global = $this->ClientGlobalFunction;
+        $language = $this->ClientLanguage;
+        return view('client.content.page', [
+            'global' => $global,
+            'language' => $language,
+            'about_us_page' => $SiteAboutUs,
+        ]);
+    }
 }

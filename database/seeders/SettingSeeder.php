@@ -40,7 +40,7 @@ class SettingSeeder extends Seeder
             [
                 'id' => '4',
                 'name' => 'Site Description',
-                'value' => 'Administrator panel made with vanilla Laravel & AdminLTE. Fell free to using this panel.'
+                'value' => 'Administrator panel made with vanilla Laravel & AdminLTE. Feel free to using this panel.'
             ],
 
             [
@@ -82,13 +82,13 @@ class SettingSeeder extends Seeder
             [
                 'id' => '11',
                 'name' => 'Social Facebook',
-                'value' => '<i class="bi bi-facebook"></i> https://facebook.com/laravel-admin'
+                'value' => '<i class="bi bi-facebook text-primary"></i> https://facebook.com/laravel-admin'
             ],
 
             [
                 'id' => '12',
                 'name' => 'Social Instagram',
-                'value' => '<i class="bi bi-instagram"></i> https://instagram.com/laravel-admin'
+                'value' => '<i class="bi bi-instagram text-danger"></i> https://instagram.com/laravel-admin'
             ],
 
             [
@@ -105,19 +105,19 @@ class SettingSeeder extends Seeder
             [
                 'id' => '14',
                 'name' => 'FAQ',
-                'value' => '<h1>FAQ Title</h1><p>This is Faq Description</p>'
+                'value' => '<h1>FAQ</h1><p>Omnis libero debitis vitae. Labore quo sint illum facilis esse vitae rerum praesentium. Rerum saepe doloribus voluptatem quisquam. Esse ut voluptatum. Ipsum eos veniam quaerat est provident nihil fuga cum.</p>'
             ],
 
             [
                 'id' => '15',
                 'name' => 'About Us',
-                'value' => '<h1>About Us Title</h1><p>This is About Us Description</p>'
+                'value' => '<h1>About Us</h1><p>Placeat ad consequuntur. Illo rem aliquid est et laboriosam perspiciatis corrupti voluptatem. Eveniet amet voluptate eum consequatur vel non iste modi. Voluptates eaque nisi in reiciendis. Eum sint autem qui at rem. Est aut eum sit aspernatur ea corrupti.</p>'
             ],
 
             [
                 'id' => '16',
                 'name' => 'Cookies Concern',
-                'value' => 'This is Cookies Concern'
+                'value' => 'Illum aut consequatur et assumenda temporibus quos.'
             ],
             /* End Additional Page */
 

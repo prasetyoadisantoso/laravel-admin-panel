@@ -50,6 +50,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     /* Disclaimer Page */
     Route::get('disclaimer', [HomeController::class, 'DisclaimerPage'])->name('disclaimer');
 
+    /* About Us Page */
+    Route::get('about-us', [HomeController::class, 'AboutUsPage'])->name('about-us');
+
 
 
 

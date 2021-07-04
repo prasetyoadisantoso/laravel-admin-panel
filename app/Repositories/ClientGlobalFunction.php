@@ -100,6 +100,12 @@ class ClientGlobalFunction{
         return view()->share('site_disclaimer', Legal::where('id', 3)->pluck('description')->first());
     }
 
+    /* About Us */
+    public function SiteAboutUs()
+    {
+        return view()->share('site_about_us', Setting::where('id', 15)->pluck('value')->first());
+    }
+
 
     /* -------------------------------------------------------------------------- */
     /*                             Return All Function                            */
@@ -124,6 +130,7 @@ class ClientGlobalFunction{
             'SiteTerms' => $value->SiteTerms(),
             'SitePrivacy' => $value->SitePrivacy(),
             'SiteDisclaimer' => $value->SiteDisclaimer(),
+            'SiteAboutUs' => $value->SiteAboutUs(),
         ];
         return $array;
     }
