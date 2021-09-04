@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Sanctum::ignoreMigrations;
     }
 
     /**
@@ -32,7 +32,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
         Schema::defaultStringLength(225);
         Blade::withoutComponentTags();
         Paginator::useBootstrap();
