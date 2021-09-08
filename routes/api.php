@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\v1\Admin\DashboardController;
 use App\Http\Controllers\API\v1\Auth\LoginController;
 use App\Http\Controllers\API\v1\Auth\RegisterController;
 use Illuminate\Http\Request;
@@ -23,5 +24,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1'], function(){
     Route::post('register', [RegisterController::class, 'register']);
     Route::post('login', [LoginController::class, 'login']);
+
+    Route::get('administrator/dashboard', [DashboardController::class, 'index']);
 });
 
