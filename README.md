@@ -3,9 +3,5 @@
 
 <br>
 
-# Laravel + AdminLTE
-My side project for administrator panel development. Continuing previous project at my [GITLAB](https://gitlab.com/prasetyoadisantoso). This project provides vanilla and no special modification from Laravel and AdminLTE. 
-
-Enjoy and feel free with this source as your project's foundation.
-
-<small>Status : WIP</small>
+# Laravel + AdminLTE [ABANDONED]
+This project has been archieved, the owner focuses work for client's project & service
